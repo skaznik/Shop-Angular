@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "./Product";
+import {ProductStorageService} from "../../product-storage.service";
 
 @Component({
   selector: 'app-products',
@@ -8,14 +9,16 @@ import {Product} from "./Product";
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productStorage: ProductStorageService) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
-  products: Product[] = [
-    {id: 1, name: 'Produkt 1', price: 10.00, quantity: 1000, available: true},
-    {id: 2, name: 'Produkt 2', price: 15.00, quantity: 10, available: false}
+  products: Product[] = [];
 
-  ];
+  getProducts() {
+    this.productStorage.getProducts().subscribe(products => this.products = products);
+
+  }
 }
