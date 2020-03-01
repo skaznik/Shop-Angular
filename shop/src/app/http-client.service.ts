@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {Product} from "./shop/products/Product";
 
 const BASE_URL = 'http://localhost:8082/api';
-const HTTP_OPTION = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+const HTTP_OPTIONS = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,13 @@ export class HttpClientService {
 
   removeProduct(id: number) {
    return this.httpClient.delete(`${BASE_URL}/products/remove/${id}`);
+  }
 
+  getProduct(id: number) {
+    return this.httpClient.get<Product>(`${BASE_URL}/products/single/${id}`);
+  }
+
+  saveProduct(product: Product) {
+    return this.httpClient.post(`${BASE_URL}/products/save`, JSON.stringify(product), HTTP_OPTIONS);
   }
 }
