@@ -21,4 +21,24 @@ export class ProductStorageService {
     const productIndex = this.products.findIndex(p => p.id === id);
     this.products.splice(productIndex, 1);
   }
+  private idCount: number = 3;
+
+  saveProduct(product: Product) {
+    // product.id = this.idCount;
+    // this.products.push(product);
+    // this.idCount++;
+    if (product.id) {
+      const productIndex = this.products.findIndex(p => p.id === product.id);
+      this.products[productIndex] = product;
+    } else {
+      product.id = this.idCount;
+      this.products.push(product);
+      this.idCount++;
+    }
+  }
+  getProduct(id: number) {
+    const productIndex = this.products.findIndex(p => p.id === id);
+    return {...this.products[productIndex]};
+  }
+
 }
