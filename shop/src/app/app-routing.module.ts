@@ -5,6 +5,7 @@ import {ShopComponent} from "./shop/shop.component";
 import {ProductsComponent} from "./shop/products/products.component";
 import {ShippingComponent} from "./shop/shipping/shipping.component";
 import {EditorComponent} from "./shop/products/editor/editor.component";
+import {EditorUserComponent} from "./shop/users/editor-user/editor-user.component"
 
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
       {path: 'products', component: ProductsComponent},
       {path: 'products/editor', component: EditorComponent},
       {path: 'products/editor/:id', component: EditorComponent},
+      {path: 'users/editorUser', component: EditorUserComponent},
+      {path: 'users/editorUser/:id', component: EditorUserComponent},
       {path: 'shipping', component: ShippingComponent}
     ]},
 ];
