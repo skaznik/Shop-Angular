@@ -17,4 +17,8 @@ export class ProductStorageService {
   getProducts(): Observable<Product[]> {
     return of(this.products);
   }
+  removeProduct(id: number) {
+    const productIndex = this.products.findIndex(p => p.id === id);
+    this.products.splice(productIndex, 1);
+  }
 }

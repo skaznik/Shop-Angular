@@ -19,6 +19,9 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.productStorage.getProducts().subscribe(products => this.products = products);
-
   }
+  removeProduct(id: number) {
+ this.productStorage.removeProduct(id);
+  }
+
 }
