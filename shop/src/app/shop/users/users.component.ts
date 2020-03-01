@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserStorageServiceService} from "../../user-storage-service.service";
 
 @Component({
   selector: 'app-users',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private userStorage: UserStorageService, private httpClient: HttpClientService) { }
+  constructor(private userStorage: UserStorageServiceService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -15,10 +16,10 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
 
   getUsers() {
-    this.httpClient.getUser().subscribe(users => this.users = users);
+    this.userStorage.getUser().subscribe(users => this.users = users);
   }
   removeUser(id: number) {
-    this.httpClient.removeUser(id).subscribe(r => {
+    this.userStorage.removeUser(id).subscribe(r => {
       this.getUsers();
     });
   }
