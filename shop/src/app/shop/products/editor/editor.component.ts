@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Product} from "../Product";
 
 @Component({
   selector: 'app-editor',
@@ -12,4 +13,5 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  product: Product = new Product();
 }

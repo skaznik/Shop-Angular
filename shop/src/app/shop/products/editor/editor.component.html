@@ -1,19 +1,19 @@
 <div style="width: 400px; margin: auto">
   <div class="uk-margin">
     <label>Nazwa</label>
-    <input class="uk-input" type="text">
+    <input [(ngModel)]="product.name" class="uk-input" type="text">
   </div>
   <div class="uk-margin">
     <label>Cena</label>
-    <input class="uk-input">
+    <input [(ngModel)]="product.price" class="uk-input">
   </div>
   <div class="uk-margin">
     <label>Ilość</label>
-    <input class="uk-input">
+    <input [(ngModel)]="product.quantity" class="uk-input">
   </div>
   <div class="uk-margin">
     <label>Dostępny </label>
-    <input type="checkbox" class="uk-checkbox">
+    <input [(ngModel)]="product.available" type="checkbox" class="uk-checkbox">
   </div>
   <input hidden type="number">
   <a><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
